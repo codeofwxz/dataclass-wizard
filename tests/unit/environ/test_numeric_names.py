@@ -23,6 +23,9 @@ def test_uppercase_numeric_name_fallback(name):
     ({'CC_2TEST': 'original', 'cc_2_test': 'snake'}, 'snake'),
     ({'CC_2TEST': 'original', 'cc_2_test': 'snake', 'CC_2_TEST': 'upper'},
      'upper'),
+    ({'CC_2TEST': 'original', 'cc_2_test': ''}, ''),
+    ({'CC_2TEST': 'original', 'cc_2_test': 'snake', 'CC_2_TEST': ''}, ''),
+    ({'CC_2TEST': 'original', 'cc_2_test': '', 'CC_2_TEST': ''}, ''),
 ])
 def test_uppercase_numeric_name_precedence(values, expected):
     """Both existing normalized candidates take priority over the fallback."""
